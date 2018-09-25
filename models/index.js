@@ -3,9 +3,7 @@ const db = new Sequelize('postgres://localhost:5432/wikistack2', {
     logging: false
 });
 
-module.exports = {
- db, Page, User
-}
+
 
 const Page = db.define('pages', {
     title: {
@@ -38,3 +36,7 @@ const User = db.define('users', {
         allowNull: false
     }
 })
+
+module.exports = {
+    db, Page, User
+   }
