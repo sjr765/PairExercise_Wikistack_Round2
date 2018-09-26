@@ -23,6 +23,10 @@ const Page = db.define('pages', {
     }
 })
 
+Page.beforeValidate((page) => {
+    page.slug = page.title.replace(/\s+/g, '_').replace(/\W/g, '')
+})
+
 const User = db.define('users', {
     name: {
         type: Sequelize.STRING,
@@ -37,6 +41,6 @@ const User = db.define('users', {
     }
 })
 
-module.exports = {
+gimodule.exports = {
     db, Page, User
    }
